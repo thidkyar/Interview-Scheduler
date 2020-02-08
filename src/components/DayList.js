@@ -5,6 +5,7 @@ export default function ayList(props) {
     const dayListItems = props.days.map(day => {
         return (
             <DayListItem
+                key={day.name}
                 name={day.name}
                 spots={day.spots}
                 selected={day.name === props.day}

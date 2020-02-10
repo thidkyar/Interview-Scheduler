@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
@@ -116,7 +116,6 @@ const interviewers = [
     { id: 4, name: "Cohana Roy", avatar: "https://i.imgur.com/FK8V841.jpg" },
     { id: 5, name: "Sven Jones", avatar: "https://i.imgur.com/twYrpay.jpg" }
 ];
-
 storiesOf("InterviewerList", module)
     .addParameters({
         backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
@@ -140,7 +139,22 @@ storiesOf("Appointment", module)
         backgrounds: [{ name: "white", value: "#fff", default: true }]
     })
     .add("Appointment", () => <Appointment />)
-    .add("Appointment with Time", () => <Appointment time="12pm" />)
+    .add("Appointment Empty", () => (
+        <Fragment>
+            <Appointment id={1} time="12pm" />
+            <Appointment id="last" time="1pm" />
+        </Fragment>
+    ))
+    .add("Appointment Booked", () => (
+        <Fragment>
+            <Appointment
+                id={1}
+                time="12pm"
+                interview={{ student: "Lydia Miller-Jones", interviewer }}
+            />
+            <Appointment id="last" time="1pm" />
+        </Fragment>
+    ))
     .add("Header", () => <Header time="12pm" />)
     .add("Empty", () => <Empty onAdd={action("onAdd")} />)
     .add("Show", () => (
@@ -187,4 +201,4 @@ storiesOf("Appointment", module)
             onSave={action("onSave")}
             onCancel={action("onCancel")}
         />
-    ))
+    ));

@@ -2,6 +2,9 @@
 
 A small React app that allows users to book, edit and cancel interviews on multiple days of the week. The project uses a concise API with a WebSocket server to build a realtime experience. The app is built using react hooks and many other of the latest tools and techniques.
 
+## Backend Server API
+The API is avaiable at: https://github.com/thidkyar/Interview-Schedular-Api
+
 ## Screen Shots
 
 Main View
@@ -47,5 +50,3 @@ npm test
 npm run storybook
 ```
 
-## Backend Server API
-The API is avaiable at: https://github.com/thidkyar/Interview-Schedular-Api
